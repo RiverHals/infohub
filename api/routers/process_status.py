@@ -1,6 +1,7 @@
 import sys
 sys.path.append('/home/riverhals/Documents/Kasper/infohub/')
-from fastapi import APIRouter
+from fastapi import APIRouter, HTTPException
+from fastapi.responses import RedirectResponse
 from api.models import Process
 from api.services.process_manager import ProcessManager
 
@@ -14,7 +15,7 @@ async def get_process_status(process: Process):
     except ValueError as e:
         raise HTTPException(status_code=422, detail="Validation error: {}".format(str(e)))
 
-    is_running = process_manager.processes.get(process.name, False)
+    is_running = process_manager.processes.is_process_running(process.name, False)
     if is_running:
         return {"status": "running"}
     else:
