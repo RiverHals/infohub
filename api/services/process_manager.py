@@ -1,7 +1,5 @@
-import asyncio
 import sys
-import subprocess
-sys.path.append('/home/riverhals/Documents/Kasper/infohub/')
+sys.path.append(".")
 import asyncio
 import subprocess
 from typing import Dict

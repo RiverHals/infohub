@@ -1,0 +1,121 @@
+{
+  "paths": {
+    "/api/pn/start": {
+      "post": {
+        "description": "Starts a new process.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "The name of the process to start.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A message indicating whether the process was started successfully.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "No name parameter specified in request."
+          }
+        }
+      }
+    },
+    "/api/pn/stop": {
+      "post": {
+        "description": "Stops an existing process.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "formData",
+            "description": "The name of the process to stop.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "A message indicating whether the process was stopped successfully.",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "message": {
+                  "type": "string"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "No name parameter specified in request."
+          }
+        }
+      }
+    },
+    "/api/pn": {
+      "get": {
+        "description": "Retrieves the status of an existing process.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "The name of the process to retrieve the status of.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The current status of the process, which can be \"running\" or \"stopped\".",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "status": {
+                  "type": "string",
+                  "enum": ["running", "stopped"]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "No name parameter specified in request."
+          }
+        }
+      }
+    },
+    "/api/pn/result": {
+      "get": {
+        "description": "Retrieves the result of an existing process.",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "description": "The name of the process to retrieve the result of.",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "The result of the process, which may vary depending on the specific process being run.",
+            "schema": {
+              "type": "object"
+            }
+          },
+          "400": {
+            "description": "No name parameter specified in request."
+          }
+        }
+      }
+    }
+  }
+}
+

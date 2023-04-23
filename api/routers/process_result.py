@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/riverhals/Documents/Kasper/infohub/')
+sys.path.append(".")
 from fastapi import APIRouter, HTTPException
 from api.models import Process
 from api.services.process_result_manager import ProcessResultManager

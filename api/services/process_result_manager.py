@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/riverhals/Documents/Kasper/infohub/')
+sys.path.append(".")
 from typing import Dict
 from api.models import Process
 import subprocess

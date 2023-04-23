@@ -1,5 +1,5 @@
 import sys
-sys.path.append('/home/riverhals/Documents/Kasper/infohub/')
+sys.path.append(".")
 from fastapi import FastAPI
 from api.routers import documentation, process_control, process_status, process_result
 

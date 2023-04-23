@@ -1,10 +1,6 @@
 import sys
-sys.path.append('/home/riverhals/Documents/Kasper/infohub/')
+sys.path.append(".")
 
-import asyncio
-
-# sys.path.append( '/.../infohub/api/services' )
-# sys.path.append( '/.../infohub/api/' )
 from fastapi import APIRouter, HTTPException
 from api.models import Process
 from api.services.process_manager import ProcessManager
